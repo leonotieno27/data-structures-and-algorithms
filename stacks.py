@@ -1,6 +1,6 @@
 """
 implements LIFO(Last IN First OUT)
-use cases, web search history and undo
+use cases, web search history and undo in editors etc
 """
 
 class Stack:

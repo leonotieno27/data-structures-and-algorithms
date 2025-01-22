@@ -1,6 +1,8 @@
 """
-compares an element with all prevoius elements
+compares an element with all previous elements
 then inserts at desired place. then pick the next element
+
+key = current element
 """
 
 def insertion_sort(arr):

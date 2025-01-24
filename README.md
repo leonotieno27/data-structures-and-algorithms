@@ -25,3 +25,15 @@
 | **BFS (Breadth-First Search)** | O(V + E)       | **Faster for shortest unweighted paths than DFS**                                                             | Explores level by level.                                     |
 | **Kruskal’s Algorithm**    | O(E log E)          | **Faster than Prim’s for sparse graphs**                                                                      | Finds the minimum spanning tree.                             |
 | **Prim’s Algorithm**       | O(V²) or O(E log V) | **Comparable to Kruskal’s Algorithm**                                                                         | Finds the minimum spanning tree.                             |
+
+
+| **Tree Type**        | **Applications**                               |
+|-----------------------|-----------------------------------------------|
+| General Trees         | File systems, Scene graphs                   |
+| Binary Search Trees   | Databases, Searching, Auto-complete          |
+| Heaps                 | Task scheduling, Shortest path algorithms    |
+| Tries                 | Auto-complete, Dictionary lookups            |
+| B-trees/B+ trees      | Database indexing                            |
+| Syntax Trees          | Compilers, Programming language interpreters |
+| Decision Trees        | Machine learning models                      |
+| Merkle Trees          | Blockchain, Cryptography                     |

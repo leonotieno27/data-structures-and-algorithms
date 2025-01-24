@@ -7,6 +7,11 @@ BST used in sorted data for quick look ups, insertion and deletions
     .symbol tables in compilers
 DOM: manipulation
 
+Traversal Techniques
+pre-order - top- left child - bottom - right child
+post-order - left child- bottom, next bottom finishes top
+breadth-first - top to bottom
+
 """
 #each node can have  multiple children
 class TreeNode:
@@ -113,3 +118,73 @@ if __name__ == "__main__":
     print("Binary Tree Structure:")
     root.display()
 
+#implementing traversals
+class Node:
+    """A class to represent a node in binary tree"""
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+class BinaryTree:
+    """Binary tree with traversal methods"""
+    def __init__(self):
+        self.root = None
+
+    def preorder_traversal(self, node, result):
+        """Preorder Traversal (Root -> Left -> Right)"""
+        if node:
+            result.append(node.value)
+            self.preorder_traversal(node.left, result)
+            self.preorder_traversal(node.right, result)
+
+    def postorder_traversal(self, node, result):
+        """Postorder Traversal (Left ->Right ->Root)"""
+        if node:
+            self.postorder_traversal(node.left, result)
+            self.postorder_traversal(node.right, result)
+            result.append(node.value)
+
+    def breadth_first_traversal(self):
+        """Breadth-First Traversal (Level Order Traversal)"""
+        if not self.root:
+            return []
+        
+        result = []
+        queue = [self.root]
+
+        while queue:
+            current_node = queue.pop(0)
+            result.append(current_node.value)
+
+            #enqueue left and right children if they exist
+            if current_node.left:
+                queue.append(current_node.left)
+            if current_node.right:
+                queue.append(current_node.right)
+
+        return result
+    
+if __name__ == "__main__":
+    tree = BinaryTree()
+    tree.root = Node(1)
+    tree.root.left = Node(2)
+    tree.root.right = Node(3)
+    tree.root.left.left = Node(4)
+    tree.root.left.right = Node(5)
+    tree.root.right.left = Node(6)
+    tree.root. right.right = Node(7)
+
+    #preorder Traversal
+    preorder_result = []
+    tree.preorder_traversal(tree.root, preorder_result)
+    print("Preorder Traversal:", preorder_result)
+
+    #postorder Traversal
+    postorder_result = []
+    tree.postorder_traversal(tree.root, postorder_result)
+    print("Post-order Traversal: ", postorder_result)
+
+    #breadth-first Traversal
+    bfs_result = tree.breadth_first_traversal()
+    print("Breadth-Firsr Traversal:", bfs_result)
